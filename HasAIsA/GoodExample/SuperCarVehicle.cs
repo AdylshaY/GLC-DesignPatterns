@@ -1,6 +1,5 @@
 ﻿using HasAIsA.GoodExample.CarBehaivor;
 using HasAIsA.GoodExample.Interfaces;
-using HasAIsA.GoodExample.TrainBehavior;
 
 namespace HasAIsA.GoodExample
 {
@@ -11,7 +10,7 @@ namespace HasAIsA.GoodExample
 
         public SuperCarVehicle()
         {
-            BackwardBehavior = new TrainBackwardBehavior();
+            BackwardBehavior = new CarBackwardBehavior();
             LeftBehavior = new CarLeftBehavior();
             RightBehavior = new CarRightBehavior();
         }

@@ -10,6 +10,7 @@ namespace HasAIsA.GoodExample
 
         public CarVehicle()
         {
+            ForwardBehavior = new CarForwardBehavior();
             BackwardBehavior = new CarBackwardBehavior();
             LeftBehavior = new CarLeftBehavior();
             RightBehavior = new CarRightBehavior();
