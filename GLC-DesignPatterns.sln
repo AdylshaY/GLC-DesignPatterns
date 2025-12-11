@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.1.11304.174 d18.0
+VisualStudioVersion = 18.1.11304.174
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GLC-DesignPatterns.OCP", "GLC-DesignPatterns.OCP\GLC-DesignPatterns.OCP.csproj", "{6531E492-947E-4568-A586-691072E5BDDC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GLC-DesignPatterns.LSP", "GLC-DesignPatterns.LSP\GLC-DesignPatterns.LSP.csproj", "{B136FF27-62FE-4858-8B16-83E67AD4F9E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{424BE35B-2ED4-4006-90B8-DCC0698E885E}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SOLID", "SOLID", "{20D3E7CA-3932-4F52-B10D-BE3421EEFC06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +32,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6531E492-947E-4568-A586-691072E5BDDC} = {20D3E7CA-3932-4F52-B10D-BE3421EEFC06}
+		{B136FF27-62FE-4858-8B16-83E67AD4F9E3} = {20D3E7CA-3932-4F52-B10D-BE3421EEFC06}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E229439-68D9-4904-B44F-CC494BFF051F}
