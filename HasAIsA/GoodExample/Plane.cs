@@ -6,6 +6,5 @@ namespace HasAIsA.GoodExample
 {
     public class Plane : Vehicle
     {
-
     }
 }

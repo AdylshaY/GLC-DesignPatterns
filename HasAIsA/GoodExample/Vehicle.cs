@@ -1,22 +1,16 @@
-﻿using HasAIsA.GoodExample.Interfaces;
+﻿using HasAIsA.GoodExample.DefaultBehaviors;
+using HasAIsA.GoodExample.Interfaces;
 
 namespace HasAIsA.GoodExample
 {
     public class Vehicle
     {
-        protected IBackwardBehavior BackwardBehavior = null!;
-        protected IForwardBehavior? ForwardBehavior;
+        protected IBackwardBehavior BackwardBehavior = new DefaultBackwardBehavior();
+        protected IForwardBehavior ForwardBehavior = new DefaultForwardBehavior();
 
         public void Forward()
         {
-            if (ForwardBehavior is not null)
-            {
-                ForwardBehavior.Forward();
-            }
-            else
-            {
-                Console.WriteLine("Vehicle Forward");
-            }
+            ForwardBehavior.Forward();
         }
 
         public void Backward()

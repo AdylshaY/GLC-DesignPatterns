@@ -30,5 +30,6 @@ goodVehicle = new Good.Plane();
 goodVehicle.Forward();
 goodVehicle.ChangeForwardBehavior(new PlaneForwardBehavior());
 goodVehicle.Forward();
+goodVehicle.Backward();
 goodVehicle.Stop();
 
