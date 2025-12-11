@@ -1,0 +1,9 @@
+@GLC_DesignPatterns.DIP.API_HostAddress = http://localhost:5135
+
+GET {{GLC_DesignPatterns.DIP.API_HostAddress}}/bad-products/
+Accept: application/json
+
+###
+
+GET {{GLC_DesignPatterns.DIP.API_HostAddress}}/good-products/
+Accept: application/json
