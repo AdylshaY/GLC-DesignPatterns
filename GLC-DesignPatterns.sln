@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractFactoryDP", "Abstra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrototypeDP", "PrototypeDP\PrototypeDP.csproj", "{80441E35-E203-488B-BE8B-3AE90AF0E447}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderDP", "BuilderDP\BuilderDP.csproj", "{81484B56-1BF3-43CE-AF1E-BD8FBE07C57A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{80441E35-E203-488B-BE8B-3AE90AF0E447}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80441E35-E203-488B-BE8B-3AE90AF0E447}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80441E35-E203-488B-BE8B-3AE90AF0E447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81484B56-1BF3-43CE-AF1E-BD8FBE07C57A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81484B56-1BF3-43CE-AF1E-BD8FBE07C57A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81484B56-1BF3-43CE-AF1E-BD8FBE07C57A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81484B56-1BF3-43CE-AF1E-BD8FBE07C57A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{73C311CC-49AE-4C69-9447-5AAFF7616362} = {7F725F28-EF80-461A-99BE-958BE67EECB2}
 		{BB454C54-3C37-4028-90A6-B3058149A3A6} = {7F725F28-EF80-461A-99BE-958BE67EECB2}
 		{80441E35-E203-488B-BE8B-3AE90AF0E447} = {7F725F28-EF80-461A-99BE-958BE67EECB2}
+		{81484B56-1BF3-43CE-AF1E-BD8FBE07C57A} = {7F725F28-EF80-461A-99BE-958BE67EECB2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E229439-68D9-4904-B44F-CC494BFF051F}
