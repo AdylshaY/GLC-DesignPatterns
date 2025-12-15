@@ -1,8 +1,8 @@
-# Design Patterns Training
+ï»¿# Design Patterns Training
 
 This repository contains practical examples and implementations of various Design Patterns and SOLID principles in .NET 10.
 
-It is designed as a resource for the internal training program at **Gelecek Varlýk Yönetimi A.Þ.**.
+It is designed as a resource for the internal training program at **Gelecek VarlÄ±k Yï¿½netimi A.ï¿½.**
 
 ## Overview
 
@@ -12,7 +12,7 @@ The project covers:
 - Structural Patterns
 - Behavioral Patterns
 
-**Instructor:** Fatih Çakýroðlu
+**Instructor:** Fatih Ã‡akÄ±roÄŸlu
 
 ---
 *Note: This project is for educational purposes.*
