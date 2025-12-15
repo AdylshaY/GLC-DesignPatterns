@@ -1,0 +1,11 @@
+@ProxyDP.API_HostAddress = http://localhost:5019
+
+POST {{ProxyDP.API_HostAddress}}/api/products
+Accept: application/json
+Content-Type: application/json
+{
+  "Name": "Kalem 1",
+  "Id": 1
+}
+
+###
