@@ -2,8 +2,14 @@
 {
     public class Folder(string Name) : IFileSystem, IFolderBehavior
     {
-        private readonly List<IFileSystem> _children = new();
+        private readonly List<IFileSystem> _children = [];
         public string Name { get; set; } = Name;
+
+        public IFileSystem? Get(string name)
+        {
+            return _children.FirstOrDefault(child => child is Folder folder && folder.Name == name ||
+                                                     child is File file && file.Name == name);
+        }
 
         public void Add(IFileSystem item)
         {

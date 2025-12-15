@@ -4,6 +4,12 @@
     {
         public string Name { get; set; } = Name;
 
+        public IFileSystem? Get(string name)
+        {
+            if (Name != name) return null;
+            return this;
+        }
+
         public long GetSize()
         {
             return Size;
