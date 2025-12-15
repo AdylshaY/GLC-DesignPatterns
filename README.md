@@ -2,7 +2,7 @@
 
 This repository contains practical examples and implementations of various Design Patterns and SOLID principles in .NET 10.
 
-It is designed as a resource for the internal training program at **Gelecek Varlık Y�netimi A.�.**
+It is designed as a resource for the internal training program at **Gelecek Varlık Yönetimi A.Ş.**
 
 ## Overview
 
