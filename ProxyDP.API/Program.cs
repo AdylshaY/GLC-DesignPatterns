@@ -23,16 +23,9 @@ builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<AppDbC
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
-//builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddKeyedScoped<IProductService, ProductService>("product-service");
 
-builder.Services.AddScoped<IProductService>(sp =>
-{
-    var productRepository = sp.GetRequiredService<IProductRepository>();
-    var httpContextAccessor = sp.GetRequiredService<IHttpContextAccessor>();
-    var userManager = sp.GetRequiredService<UserManager<AppUser>>();
-    var productService = new ProductService(productRepository);
-    return new ProductServiceAccessProxy(productService, httpContextAccessor, userManager);
-});
+builder.Services.AddKeyedScoped<IProductService, ProductServiceAccessProxy>("product-service-proxy");
 
 var app = builder.Build();
 
@@ -44,7 +37,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapPost("/api/products", async ([FromServices] IProductService productService, CreateProductRequest request) =>
+app.MapPost("/api/products", async ([FromKeyedServices("product-service-proxy")] IProductService productService, CreateProductRequest request) =>
 {
     var result = await productService.CreateAsync(request);
     return Results.Ok(result);

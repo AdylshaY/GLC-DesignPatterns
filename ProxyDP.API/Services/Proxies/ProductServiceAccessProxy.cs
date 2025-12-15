@@ -3,7 +3,7 @@ using ProxyDP.API.Repositories;
 
 namespace ProxyDP.API.Services.Proxies
 {
-    public class ProductServiceAccessProxy(IProductService productService, IHttpContextAccessor httpContextAccessor, UserManager<AppUser> userManager) : IProductService
+    public class ProductServiceAccessProxy([FromKeyedServices("product-service")] IProductService productService, IHttpContextAccessor httpContextAccessor, UserManager<AppUser> userManager) : IProductService
     {
         public async Task<ProductDto> CreateAsync(CreateProductRequest productDto)
         {
