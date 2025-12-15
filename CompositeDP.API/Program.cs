@@ -1,16 +1,24 @@
-using CompositeDP.API.Example;
+using CompositeDP.API.CompositeEFCore;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-var fileManager = new FileManager();
+//using CompositeDP.API.Example;
+//var fileManager = new FileManager();
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("CompositeDPDB"));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+using (var scope = app.Services.CreateScope())
+{
+    var appDbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    SeedData.Seed(appDbContext);
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -18,11 +26,19 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/api/employees", ([FromServices] AppDbContext dbContext) =>
 {
+    //var rootDepartment = dbContext.Departments.First(x => x.ParentDepartmentId == null);
+    //rootDepartment.Print();
 
+    var rootDepartment = dbContext.Departments.Include(d => d.Manager)
+        .Include(d => d.Employees)
+        .Include(d => d.SubDepartments)
+        .First(x => x.ParentDepartmentId == null);
+
+    rootDepartment.Print();
 })
-.WithName("GetWeatherForecast");
+.WithName("GetEmployees");
 
 app.Run();
 

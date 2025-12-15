@@ -1,6 +1,6 @@
 @CompositeDP.API_HostAddress = http://localhost:5047
 
-GET {{CompositeDP.API_HostAddress}}/weatherforecast/
+GET {{CompositeDP.API_HostAddress}}/api/employees
 Accept: application/json
 
 ###
