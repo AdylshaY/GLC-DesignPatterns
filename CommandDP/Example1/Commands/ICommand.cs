@@ -1,4 +1,4 @@
-﻿namespace CommandDP.Commands
+﻿namespace CommandDP.Example1.Commands
 {
     public interface ICommand
     {

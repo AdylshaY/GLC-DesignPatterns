@@ -1,6 +1,6 @@
-﻿using CommandDP.Receivers;
+﻿using CommandDP.Example1.Receivers;
 
-namespace CommandDP.Commands
+namespace CommandDP.Example1.Commands
 {
     public class LightOn(LightReceiverProcess lightProcess) : ICommand
     {

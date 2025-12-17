@@ -1,6 +1,6 @@
-﻿using CommandDP.Commands;
+﻿using CommandDP.Example1.Commands;
 
-namespace CommandDP.Invokers
+namespace CommandDP.Example1.Invokers
 {
     public class RemoteControl
     {

@@ -1,69 +1,107 @@
-﻿// Client => Invoker => ICommand => ConcreteCommand => Receiver
+﻿
+#region Example 1
 
-using CommandDP.Commands;
-using CommandDP.Invokers;
-using CommandDP.Receivers;
+// Client => Invoker => ICommand => ConcreteCommand => Receiver
 
-var lightReceiver = new LightReceiverProcess();
-var remoteControl = new RemoteControl();
+//using CommandDP.Example1.Commands;
+//using CommandDP.Example1.Invokers;
+//using CommandDP.Example1.Receivers;
 
-Console.WriteLine("=== Tekli Komut Testleri ===");
-// Turn light on
-remoteControl.SetCommand(new LightOn(lightReceiver));
-remoteControl.PressButton();
+//var lightReceiver = new LightReceiverProcess();
+//var remoteControl = new RemoteControl();
 
-// Turn light off
-remoteControl.SetCommand(new LightOff(lightReceiver));
-remoteControl.PressButton();
+//Console.WriteLine("=== Tekli Komut Testleri ===");
+//// Turn light on
+//remoteControl.SetCommand(new LightOn(lightReceiver));
+//remoteControl.PressButton();
 
-// Undo last command (should turn light on again)
-remoteControl.PressUndo();
+//// Turn light off
+//remoteControl.SetCommand(new LightOff(lightReceiver));
+//remoteControl.PressButton();
 
-// Undo again (should turn light off again)
-remoteControl.PressUndo();
+//// Undo last command (should turn light on again)
+//remoteControl.PressUndo();
 
-remoteControl.LogHistory();
+//// Undo again (should turn light off again)
+//remoteControl.PressUndo();
 
-Console.WriteLine("\n=== Toplu Komut Testi (Direkt) ===");
-var remoteControl2 = new RemoteControl();
-var lightReceiver2 = new LightReceiverProcess();
+//remoteControl.LogHistory();
 
-remoteControl2.ExecuteCommands(
-    new LightOn(lightReceiver2),
-    new LightOff(lightReceiver2),
-    new LightOn(lightReceiver2)
-);
+//Console.WriteLine("\n=== Toplu Komut Testi (Direkt) ===");
+//var remoteControl2 = new RemoteControl();
+//var lightReceiver2 = new LightReceiverProcess();
 
-remoteControl2.LogHistory();
+//remoteControl2.ExecuteCommands(
+//    new LightOn(lightReceiver2),
+//    new LightOff(lightReceiver2),
+//    new LightOn(lightReceiver2)
+//);
 
-Console.WriteLine("\nUndo işlemleri:");
-remoteControl2.PressUndo();
-remoteControl2.PressUndo();
+//remoteControl2.LogHistory();
 
-remoteControl2.LogHistory();
+//Console.WriteLine("\nUndo işlemleri:");
+//remoteControl2.PressUndo();
+//remoteControl2.PressUndo();
 
-Console.WriteLine("\n=== Queue Mekanizması (Önce Ekle, Sonra Çalıştır) ===");
-var remoteControl3 = new RemoteControl();
-var lightReceiver3 = new LightReceiverProcess();
+//remoteControl2.LogHistory();
 
-// Komutları kuyruğa ekle
-remoteControl3.AddToQueue(new LightOn(lightReceiver3));
-remoteControl3.AddToQueue(new LightOff(lightReceiver3));
-remoteControl3.AddToQueue(new LightOn(lightReceiver3));
-remoteControl3.AddToQueue(new LightOff(lightReceiver3));
+//Console.WriteLine("\n=== Queue Mekanizması (Önce Ekle, Sonra Çalıştır) ===");
+//var remoteControl3 = new RemoteControl();
+//var lightReceiver3 = new LightReceiverProcess();
 
-// Kuyruğu görüntüle
-remoteControl3.LogQueue();
+//// Komutları kuyruğa ekle
+//remoteControl3.AddToQueue(new LightOn(lightReceiver3));
+//remoteControl3.AddToQueue(new LightOff(lightReceiver3));
+//remoteControl3.AddToQueue(new LightOn(lightReceiver3));
+//remoteControl3.AddToQueue(new LightOff(lightReceiver3));
 
-// Tüm kuyruğu çalıştır
-remoteControl3.ExecuteQueue();
+//// Kuyruğu görüntüle
+//remoteControl3.LogQueue();
 
-// History'yi kontrol et
-remoteControl3.LogHistory();
+//// Tüm kuyruğu çalıştır
+//remoteControl3.ExecuteQueue();
 
-// Undo yap
-Console.WriteLine("\nUndo işlemleri:");
-remoteControl3.PressUndo();
-remoteControl3.PressUndo();
+//// History'yi kontrol et
+//remoteControl3.LogHistory();
 
-remoteControl3.LogHistory();
+//// Undo yap
+//Console.WriteLine("\nUndo işlemleri:");
+//remoteControl3.PressUndo();
+//remoteControl3.PressUndo();
+
+//remoteControl3.LogHistory();
+
+#endregion
+
+#region Example 2
+
+using CommandDP.Example2.Commands;
+using CommandDP.Example2.Invokers;
+using CommandDP.Example2.Receivers;
+
+BankAccount bankAcc = new() { Id = 1 };
+var bankAccManager = new BankAccountManager();
+
+Console.WriteLine(bankAcc.ToString());
+
+bankAccManager.ExecuteCommand(new DepositCommand(bankAcc, 500));
+
+Console.WriteLine(bankAcc.ToString());
+
+bankAccManager.ExecuteCommand(new WithdrawCommand(bankAcc, 200));
+
+Console.WriteLine(bankAcc.ToString());
+
+bankAccManager.UndoLastCommand();
+
+Console.WriteLine(bankAcc.ToString());
+
+bankAccManager.UndoLastCommand();
+
+Console.WriteLine(bankAcc.ToString());
+
+bankAccManager.RedoLastCommand();
+
+Console.WriteLine(bankAcc.ToString());
+
+#endregion

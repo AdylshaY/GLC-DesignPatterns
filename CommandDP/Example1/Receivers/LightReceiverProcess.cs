@@ -1,4 +1,4 @@
-﻿namespace CommandDP.Receivers
+﻿namespace CommandDP.Example1.Receivers
 {
     public class LightReceiverProcess
     {
